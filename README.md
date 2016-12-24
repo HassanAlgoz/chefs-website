@@ -2,9 +2,9 @@
 - git clone
 - git status
 - git add
-- git commit
+- git commit -am "Your commit message"
 - git push
 - git pull
 
 
-##### that's all folks :)
+#### that's all folks :)
