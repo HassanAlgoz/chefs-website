@@ -1,0 +1,10 @@
+.recipe .picture {
+	max-width: 30%;
+	float: left;
+}
+
+.recipe .info {
+	width: 60%;
+	float: left;
+	margin-left: 10px;
+}
