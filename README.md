@@ -34,4 +34,4 @@ We need to make HTTP 'requests' to the backend API. All HTTP requests are follow
 - footer rgb(51, 51, 51)
 
 
-#### that's all folks :)
+
