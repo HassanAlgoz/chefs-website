@@ -28,5 +28,9 @@ HTTP stands for Hyper Text Transfer Protocol. We need to make HTTP 'requests' to
 - To submit a request of deletion, use the DELETE request.
 
 
+- nav #ea5b31
+- highlighting #F9A825
+- footer rgb(51, 51, 51)
+
 
 #### that's all folks :)

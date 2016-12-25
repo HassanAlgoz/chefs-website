@@ -25,3 +25,19 @@ h6 {
 .clear {
 	clear: both;
 }
+
+
+nav {
+	background-color: #ea5b31;
+	height: 50px;
+}
+
+#div1 {
+	height: 100px;
+	/*background-color: #F9A825;*/
+}
+
+#div2 {
+	height: 100px;
+	background-color: rgb(51, 51, 51);
+}
