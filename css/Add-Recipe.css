@@ -4,11 +4,11 @@ form {
 }
 
 /* Full-width inputs */
-input[type=text], input[type=password] {
+input[type=text], input[type=password],input[type=URl] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
-    display: inline-block;
+    display: block;
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
@@ -24,16 +24,11 @@ button {
     width: 100%;
 }
 
-/* Center the avatar image inside this container */
-.imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-}
-
-/* Avatar image */
-img.avatar {
-    width: 10%;
-    border-radius: 20%;
+/* Extra style for the cancel button (red) */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
 }
 
 /* Add padding to containers */
@@ -44,7 +39,7 @@ img.avatar {
 /* The "Forgot password" text */
 span.psw {
     float: right;
-    padding-TOP: px;
+    padding-top: 16px;
 }
 
 /* Change styles for span and cancel button on extra small screens */
@@ -53,5 +48,7 @@ span.psw {
         display: block;
         float: none;
     }
-
+    .cancelbtn {
+        width: 100%;
+    }
 }
