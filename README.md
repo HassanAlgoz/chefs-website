@@ -23,7 +23,7 @@
 ## colors
 - nav #ea5b31
 - highlighting #F9A825
-- footer rgb(51, 51, 51)
+- footer #333
 
 
 
@@ -36,7 +36,6 @@ We need to make HTTP 'requests' to the backend API. All HTTP requests are follow
 
 
 ## API Endpoints
-- API endpoints
 - /api/users
 - /api/users/id
 - /api/recipes
