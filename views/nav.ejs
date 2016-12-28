@@ -1,0 +1,19 @@
+<nav>
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/search">Recipes</a></li>
+		
+		<% if (user === null) {%>
+
+			<li><a href="/signup">Sign Up</a></li>
+			<li><a href="/login">log In</a></li>
+
+		<% } else { %>
+
+			<li><a href="/profile">Profile</a></li>
+			<li><a href="/recipe-add">New Recipe</a></li>
+
+		<% } %>
+		
+	</ul>
+</nav>

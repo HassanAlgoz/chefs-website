@@ -1,0 +1,59 @@
+/* The main styles file */
+body {
+	font: 16px arial, sans-serif;
+}
+
+
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+ul li {
+	list-style-type: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	padding: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #ea5b31;
+
+}
+
+nav ul li {
+  font: 16px/20px Helvetica, Sans-Serif;
+  float: left;
+
+}
+
+nav ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+
+}
+
+nav ul li a:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+
+}

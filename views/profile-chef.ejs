@@ -4,10 +4,13 @@
 <meta charset="utf-8">
 	<title>Chef's profile</title>
 	<!-- CSS -->
-	<link rel="stylesheet" href="../css/main.css">
-	<link rel="stylesheet" href="../css/chef-profile.css">
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="/css/profile-chef.css">
 </head>
 <body>
+
+	<% include nav.ejs %>
+
 	<h1>Chef's information</h1>
 	<hr/>
 	
@@ -17,17 +20,13 @@
 		</div>
 
 		<div class="info">
-			<h3>Name: Lorem ipsum dolor.</h3>
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, laborum et quo maiores vero consectetur aperiam! Asperiores, laudantium. Et iusto, quis veritatis eum, ea ut. Nulla quo eius at inventore dolores cum alias ut similique voluptatibus necessitatibus iure, sapiente fugit quaerat accusantium laborum. Eos aperiam nam, voluptatem nulla vel id pariatur deleniti fugit ut nobis quam mollitia necessitatibus maiores ab dignissimos iusto accusamus doloremque fuga provident, eaque! Laborum veniam similique animi, odio exercitationem nam unde culpa earum nostrum nemo minus assumenda ad sint explicabo atque eos dicta vero, sapiente dolores, sequi fugit. Doloribus, esse quisquam placeat dolore consectetur! Voluptatem, expedita.
-			</p>
-			<h3>Social Media: </h3>
+			<h3><%= user.username %></h3>
+			<p><%= user.bio %></p>
+			<h3>Social Media</h3>
 			<ul>
-				<li>
-					<a href="">facebook</a>
-					<a href="">youtube</a>
-					<a href="">twitter</a>
-				</li>
+				<% for(var i=0; i<5; i++) {%>
+				<li> <a href="#">Link <%= i %></a> </li>
+				<% } %>
 			</ul>
 		</div>
 
@@ -38,7 +37,7 @@
 	<br/>
 	<br/>
 	
-	<h1>Recipes: </h1>
+	<h1>Recipes</h1>
 	<hr/>
 	
 

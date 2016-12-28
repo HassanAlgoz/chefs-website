@@ -12,15 +12,7 @@ $(function() {
     dataType: 'json',
     success: function(data) {
       // Success case
-      var str = "<ul>";
-
-      for(var i=0; i<data.length; i++) {
-        console.log(data[i].username);
-        console.log(data[i].email);
-        str += '<li>'+ data[i].username +'</li>';
-      }
-      str += '</ul>'
-      $('#content').html(str);
+      console.log(data);
     },
     error: function(error) {
       // Error case
