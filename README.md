@@ -67,7 +67,7 @@ We need to make HTTP 'requests' to the backend API. All HTTP requests are follow
 - [x] /
 - [x] /profile
 - [ ] /profile/edit
-- [ ] /search
+- [x] /search
 - [ ] /recipe/:id (Recipe Page)
 - [x] /recipe-add
 - [ ] /recipe-edit/:id
