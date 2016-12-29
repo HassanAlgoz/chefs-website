@@ -8,7 +8,7 @@ module.exports = function(app, connection) {
 	
 	app.get('/api/recipes', function(req, res) {
 		
-		var query = 'SELECT * FROM `recipes`';
+		var query = 'SELECT * FROM recipes JOIN chefs ON chefs.id = recipes.chef_id';
 
 		query = addToQueryLike(query, req.query, 'name');
 
@@ -37,12 +37,14 @@ module.exports = function(app, connection) {
 	app.get('/api/recipes/:id', function(req, res) {
 		
 		var recipe_id = req.params.id;
-		var result; // rows
-		var query = 'SELECT * FROM `recipes` WHERE `id` = ' + recipe_id;
+		var query = 'SELECT * FROM recipes JOIN chefs ON chefs.id = recipes.chef_id WHERE recipes.id = ' + recipe_id;
 
 		// list comments
 		query += ';';
-		query += 'SELECT * FROM comments WHERE recipe_id = ' + recipe_id + ' ORDER BY posted_at';
+		query += `SELECT username, picture, comments.user_id, comments.body, comments.posted_at FROM comments
+			JOIN users ON comments.user_id = users.id
+			WHERE recipe_id = ${recipe_id}
+			ORDER BY posted_at`;
 
 		// list ingredients
 		query += ';';
@@ -51,28 +53,37 @@ module.exports = function(app, connection) {
 		// list tags
 		query += ';';
 		query += 'SELECT * FROM tags WHERE recipe_id = ' + recipe_id;
-		query += ' JOIN tags_list ON tag_id = id';
 
-		connection.query(query, function(err, rows, fields) {
+		connection.query(query, function(err, result, fields) {
 			if (err) {
 				console.error('err', err);
 				return res.sendStatus(404);
 			}
 
-			result = rows;
+			result = {
+				recipe_id: result[0][0].id,
+				chef_id: result[0][0].chef_id,
+				first_name: result[0][0].first_name,
+				last_name: result[0][0].last_name,
+				name: result[0][0].name,
+				directions: result[0][0].directions,
+				hits: result[0][0].hits,
+				posted_at: result[0][0].posted_at,
+				comments: result[1],
+				ingredients: result[2],
+				tags: result[3]
+			};
 
-			// get chef
-			query = 'SELECT * FROM chefs WHERE id = ' + rows[0][0].chef_id;
-			connection.query(query, function(err, rows, fields) {
-				if (err) {
-					console.error('err', err);
-					return res.sendStatus(404);
-				}
+			result.ingredients = result.ingredients.map((x) => {
+				return x.name;
+			})
 
-				res.json(result.concat(rows));
+			result.tags = result.tags.map((x) => {
+				return x.name;
+			})
 
-			});
-			
+			res.json(result);
+
 
 		});
 

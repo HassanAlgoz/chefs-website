@@ -1,0 +1,37 @@
+.recipe-name {
+    margin-top: 20px;
+}
+
+p {
+    margin-top: 0;
+}
+
+.by {
+    font-size: 16px;
+}
+
+.image-box {
+    text-align: center;
+}
+
+.image-box img {
+
+}
+
+#comments-section {
+    margin: 200px auto 0 auto;
+    max-width: 560px;
+}
+
+#comments {
+    font-size: 12px;
+}
+
+#comments li {
+    list-style-type: none;
+}
+
+#comments a {
+    text-decoration: none;
+    color: inherit;
+}

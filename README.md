@@ -16,6 +16,7 @@ Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine. Basica
 #### XAMPP
 XAMPP provides an interface to the database. After you run XAMPP, 'start' both Apache, and MySQL. After that, go to your browser and type: **localhost/phpmyadmin**. That will open the interface to the MySQL database.
 
+
 ### Run The Server
 You must first make sure that XAMPP is running. Then, navigate to the project through the command line, and run `npm install` then run `node app.js`. That will start the nodejs server. You can then go to the URL **localhost:3000** where the home page is supposed to be displayed.
 
@@ -47,23 +48,29 @@ When adding a new page, notify me so that I can update the server routing accord
 
 ## JSON
 We need to make HTTP 'requests' to the backend API. All HTTP requests are followed by a 'response' from the server. We expect data formatted as JSON from the API when we use GET requests. There is a sample code in /js/index.js using the '$' object provided by the jQuery library.
-- To retrieve data, use the GET request, and modify the HTML.
-- To submit forms, use the POST request.
-- To submit forms, but signify editing existing information, use PUT request.
-- To submit a request of deletion, use the DELETE request.
+
+## Sample REST API
+| Route    |   HTTP Verb    |  Description |
+|----------|:-------------:|--------------|
+| /api/bears |  `GET` | Get all the bears. |
+| /api/bears |  `POST` | Create a bear |
+| /api/bears/:bear_id | `GET` | Get a single bear |
+| /api/bears/:bear_id | `PUT` | Update a bear with new info |
+| /api/bears/:bear_id | `DELETE` | Delete a bear |
 
 
 ## API Endpoints
 - /api/users
-- /api/users/id
+- /api/users/:id
 - /api/recipes
-- /api/recipes/id
+- /api/recipes/:id
 - /api/chefs
-- /api/chefs/id
+- /api/chefs/:id
 - /api/login - POST
 - /api/logout - GET
 
 ## Pages
+- [x] navbar
 - [x] /
 - [x] /profile
 - [ ] /profile/edit
@@ -75,8 +82,20 @@ We need to make HTTP 'requests' to the backend API. All HTTP requests are follow
 - [x] /signup
 - [ ] /chefs/:id
 - [ ] /users/:id
+- [ ] footer
 
 Please make sure your pages is consistent with the colors we've chosen:
 - red: #ea5b31
 - orange: #F9A825
 - dark-gray: #333
+
+## SQL
+- [ ] A statement to search recipes & retrieve all their information. (For the search page)
+
+
+## SQL "Reports"
+- [ ] Top three recipes of the month
+- [ ] Annual number of registered users
+- [ ] Top chefs of the month
+- [ ] Number of site hits per month
+- [ ] Most active users of the week

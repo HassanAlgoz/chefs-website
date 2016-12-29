@@ -1,0 +1,56 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+	<title>Chef's profile</title>
+	<!-- CSS -->
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="/css/recipe.css">
+	<!-- Javascript -->
+	<script src="/js/lib/jquery.min.js"></script>
+	<script src="/js/recipe.js"></script>
+</head>
+<body>
+
+	<% include nav.ejs %>
+
+	<input type="hidden" id="recipe_id" value="<%= recipe_id %>">
+
+	<div class="container">
+
+		<div class="recipe">
+
+			<div class="image-box">
+			<img src="http://lorempixel.com/560/320/food" alt="Recipe Picture">
+			</div>
+
+			<h1><span id="recipe-name"></span>
+				<small class="by">By <span id="chef-name"></span></small>
+			</h1>
+
+			<div class="info">
+				<h3>Ingredients</h3>
+				<ul id="ingredients">
+					<!-- Ingredients -->
+				</ul>
+				<h3>Preparation</h3>
+				<div id="directions">
+					<!-- Directions -->
+				</div>
+			</div>
+
+		</div>
+
+
+		<div id="comments-section">
+			<hr>
+			<h3>Comments</h3>
+			<ul id="comments">
+
+			</ul>
+		</div>
+
+	</div>
+
+</body>
+</html>
