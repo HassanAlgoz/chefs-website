@@ -1,18 +1,8 @@
 /* The main styles file */
 body {
-	font: 16px arial, sans-serif;
+	font: 16px Helvetica, Sans-Serif
 }
 
-
-
-ul {
-	margin: 0;
-	padding: 0;
-}
-
-ul li {
-	list-style-type: none;
-}
 
 h1,
 h2,
@@ -56,4 +46,9 @@ nav ul li a {
 nav ul li a:hover {
   background-color: rgba(0, 0, 0, 0.7);
 
+}
+
+.container {
+  max-width: 640px;
+  margin: 0 auto;
 }
