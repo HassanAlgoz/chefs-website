@@ -11,11 +11,12 @@ h1 {
  
 }
 
-p { 
+h3 { 
  position: absolute; 
  font: 18px/20px Helvetica, Sans-Serif;
- top: 260px; 
- padding-left :0px
+ top: 270px; 
+ padding-left: 25px;
+ padding-right: 25px;
 
 }
 

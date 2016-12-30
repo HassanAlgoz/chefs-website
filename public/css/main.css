@@ -1,6 +1,7 @@
 /* The main styles file */
 body {
-	font: 16px Helvetica, Sans-Serif
+	font: 16px Helvetica, Sans-Serif;
+  margin: 0;
 }
 
 
@@ -14,10 +15,14 @@ h6 {
 	padding: 0;
 }
 
-.clear {
-	clear: both;
+a {
+  text-decoration: none;
+  color: #ea5b31;
 }
 
+a:hover {
+  text-decoration: underline;
+}
 
 nav ul {
   list-style-type: none;
@@ -45,10 +50,29 @@ nav ul li a {
 
 nav ul li a:hover {
   background-color: rgba(0, 0, 0, 0.7);
+  text-decoration: none;
+}
 
+input[type="submit"] {
+  cursor: pointer;
+}
+
+button[type="submit"] {
+  cursor: pointer;
+  background-color: #4CAF50;
+  border: none;
+  color: #fff;
 }
 
 .container {
   max-width: 640px;
   margin: 0 auto;
+}
+
+.clear {
+  clear: both;
+}
+
+.inline-list {
+  list-style: none;
 }

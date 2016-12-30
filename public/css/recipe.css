@@ -31,7 +31,78 @@ p {
     list-style-type: none;
 }
 
-#comments a {
-    text-decoration: none;
-    color: inherit;
+#comments img {
+	width: 48px;
+	height: 48px;
+}
+
+form #title {
+    width: 100%;
+}
+
+
+form #text {
+    width: 100%;
+    height: 560px;
+}
+
+.comment-form button {
+	padding: 14px 20px;
+}
+
+.comment-form {
+    width: 100%;
+    background-color: #f1f1f1;
+    padding: 10px 15px;
+}
+
+.comment-form textarea { 
+	max-width: 100%;
+}
+
+.comment-form .header {
+	margin: 10px 0;
+}
+
+#commenter-name {
+    width: 100%;
+    padding: 5px;
+    font: inherit;
+}
+
+#comment-body {
+    width: 100%;
+    min-height: 160px;
+    font: inherit;
+}
+
+
+#show-comments {
+    margin: 0 auto;
+    display: block;
+}
+
+.comment-date {
+    font-size: 11px;
+}
+
+.commenter-name {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.comment-body {
+    /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  
+    /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  /*-ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;*/
+}
+
+.comment-body p:first-child {
+    margin-top: 0;
 }

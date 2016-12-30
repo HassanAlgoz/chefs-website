@@ -3,14 +3,18 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Search</title>
+	<!-- CSS -->
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/css/search.css">
+	<!-- Javascript -->
+	<script src="/js/lib/jquery.min.js"></script>
+	<script src="/js/search.js"></script>
 </head>
 <body>
 	
 	<% include nav.ejs %>
 
-	<form method="GET" action="/api/recipes">
+	<form>
 	
 		
 		<div class="imgcontainer">
@@ -18,18 +22,18 @@
     </div>
 
     <div class="container">
-      <input type="text" placeholder="Write it Here" name="search" required>
+      <input type="text" placeholder="Write it Here" id="search-key" name="name" autocomplete="off" required>
+      <input type="checkbox" name="orderby" value="posted_at"> sorted by date
+      <button type="submit">Search</button>
 
       
-      <button type="submit">search</button>
-      
+			<ul id="results">
+				<!-- Results -->
+			</ul>
+
     </div>
+    	
 
-    <div class="container" style="background-color:#f1f1f1">
-
-      
-    </div>
-		
 		
 	</form>
 </body>

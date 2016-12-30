@@ -8,7 +8,7 @@ module.exports = function(app, connection) {
 	
 	app.get('/api/recipes', function(req, res) {
 		
-		var query = 'SELECT * FROM recipes JOIN chefs ON chefs.id = recipes.chef_id';
+		var query = 'SELECT *, recipes.id AS recipe_id FROM recipes LEFT JOIN chefs ON chefs.id = recipes.chef_id';
 
 		query = addToQueryLike(query, req.query, 'name');
 

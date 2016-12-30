@@ -39,11 +39,11 @@ $(function() {
       	str += `
 					<li>
 						<a href="/users/${comment.user_id}"><img src="${comment.picture}" alt="user pic">
-							<b>${comment.username}</b>
-						</a> - ${comment.posted_at}
+							<span class="commenter-name">${comment.username}</span>
+						</a> - <span class="comment-date">${comment.posted_at}</span>
 
 						<p class="comment-body">
-							${comment.body}
+              ${comment.body}
 						</p>
 					</li>
       	`;
