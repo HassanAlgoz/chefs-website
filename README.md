@@ -73,15 +73,14 @@ We need to make HTTP 'requests' to the backend API. All HTTP requests are follow
 - [x] navbar
 - [x] /
 - [x] /profile
-- [ ] /profile/edit
+- [x] /profile/edit
 - [x] /search
 - [x] /recipe/:id
 - [x] /recipe-add
-- [ ] /recipe-edit/:id
+- [x] /recipe-edit/:id
 - [x] /login
 - [x] /signup
-- [ ] /chefs/:id
-- [ ] /users/:id
+- [x] /users/:id
 - [x] footer
 
 Please make sure your pages is consistent with the colors we've chosen:
@@ -90,7 +89,7 @@ Please make sure your pages is consistent with the colors we've chosen:
 - dark-gray: #333
 
 ## SQL
-- [ ] A statement to search recipes based on (name, tag, ingredients) & retrieve all their information. (For the search page)
+- [x] A statement to search recipes based on name & retrieve all their information. (For the search page)
 - [ ] DML insert statements to insert the data in to tables.
 - [x] DDL script /SQL statements used to create database objects
 - [ ] Select queries to satisfy the sample queries submitted in phase I
