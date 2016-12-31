@@ -1,4 +1,10 @@
 # README
+
+1. Muath
+2. Abdulaziz
+3. Hassan
+4. Abdullah
+
 ## Project Directories Structure
 - /public for all front-end assets (img, css, js).
 - /view for html files with .ejs extension.
@@ -90,30 +96,30 @@ Please make sure your pages is consistent with the colors we've chosen:
 
 ## SQL
 - [x] A statement to search recipes based on name & retrieve all their information. (For the search page)
-- [ ] DML insert statements to insert the data in to tables.
+- [ ] DML insert statements to insert the data in to tables. (1)
 - [x] DDL script /SQL statements used to create database objects
 - [ ] Select queries to satisfy the sample queries submitted in phase I
   - [x] List all recipes
   - [x] List all registered users who are chefs
-  - [ ] List all registered users including/excluding chefs
+  - [ ] List all registered users including/excluding chefs (1)
   - [x] List all comments made on a recipe
-  - [ ] List recipes ordered by the most liked recipe first
-  - [ ] List recipes with certain types of ingredients
-  - [ ] List recipes with certain tags attached to them
+  - [ ] List recipes ordered by the most liked recipe first (1)
+  - [ ] List recipes with certain types of ingredients (1)
+  - [ ] List recipes with certain tags attached to them (1)
   - [x] Retrieve complete information about a certain chef
   - [x] Retrieve recipe ingredients, directions, and the date on which it was posted
   - [x] List recipes ordered by the date on which they were posted
 
 
 ### Other requirements
-- [ ] Physical (or internal) schema, i.e., file structure for each relation
-- [ ] The user manual (You can add snapshots of your screens along with explanations about how to use for users)
-- [ ] The conclusions (your own experiences)
-- [ ] Distribution of Project tasks (A table showing who did what)
+- [ ] Physical (or internal) schema, i.e., file structure for each relation (2)
+- [ ] The user manual (You can add snapshots of your screens along with explanations about how to use for users) (3)
+- [ ] The conclusions (your own experiences) (1,2,3,4)
+- [ ] Distribution of Project tasks (A table showing who did what) (1,2,3,4)
 
 ## SQL "Reports"
-- [ ] Top three recipes of the month
-- [ ] Annual number of registered users
-- [ ] Top chefs of the month
-- [ ] Number of site hits per month
-- [ ] Most active users of the week
+- [ ] Top three recipes of the month (2)
+- [ ] Annual number of registered users (3)
+- [ ] Top chefs of the month (4)
+- [ ] Number of site hits per month (4)
+- [ ] Most active users of the week (4)
