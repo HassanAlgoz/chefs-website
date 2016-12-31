@@ -58,4 +58,28 @@ $(function() {
   })
 
 
+  $('form').on('submit', function(event) {
+    event.preventDefault();
+
+    $.ajax({
+      method: 'POST',
+      url: '/api/recipes' + '/' + $('#recipe_id').val() + '/comments',
+      data: {
+        body: $('#comment-body').val()
+      },
+      success: function(data) {
+        // Success case
+        // location.reload();
+      },
+      error: function(error) {
+        // Error case
+        console.log(error);
+      }
+    })
+
+  })
+
+  
+
+
 });

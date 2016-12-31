@@ -1,0 +1,43 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+	<title>Profile</title>
+	<!-- CSS -->
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="/css/profile.css">
+	<!-- Javascript -->
+	<script src="/js/lib/jquery.min.js"></script>
+	<script src="/js/profile.js"></script>
+</head>
+<body>
+
+	<% include nav.ejs %>
+
+	<input type="hidden" id="user_id" value="<%= user.id %>">
+
+	<div class="container">
+		<div class="picture">
+			<img id="user-picture" src="" alt="Chef's Picture" >
+		</div>
+
+		<div class="info">
+			<h1 id="username"><%= user.username %></h1>
+			<p id="bio"><%= user.bio %></p>
+			<h3 id="email"></h3>
+			<ul class="inline-list" id="social-media-links">
+				
+			</ul>
+		</div>
+
+		<div id="recipes">
+			<!-- Recipes -->
+
+		</div>
+
+	</div>
+
+	<% include footer.ejs %>
+</body>
+
+</html>

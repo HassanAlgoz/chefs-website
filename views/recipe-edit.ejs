@@ -3,15 +3,23 @@
 <head>
     <meta charset="utf-8">
     <title>Add Recipe Page</title>
+    <!-- CSS -->
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/recipe-add.css">
+    <!-- Javascript -->
+    <script src="/js/recipe-edit.js"></script>
 </head>
 <body>
 
     <% include nav.ejs %>
+    
+    <input type="hidden" id="recipe_id" value="<%=recipe_id%>">
 
-    <form method="POST" action="/api/recipes">
+    <form>
         <div class="container">
+            <h1 id="recipe-name"></h1>
+            <h3>By <span id="chef-name"></span></h3>
+
             <label><b>Recipe Name</b></label>
             <input type="text" placeholder="Enter Name" name="name" required>
 
@@ -22,12 +30,13 @@
             <input type="text" placeholder="Seperate each ingredient by a comma" name="ingredients" required>
 
             <label><b>Directions:</b></label>
-            <textarea name="directions" placeholder="Directions"></textarea>    
+            <textarea name="directions" id="directions" placeholder="Directions"></textarea>    
 
             <label><b>Tags:</b></label>
-            <input type="text" placeholder="Seperate each tags by a comma" name="tags" >
-
-            <button type="submit" id="add-recipe">Add Recipe</button>
+            <input type="text" id="tags" placeholder="Seperate each tags by a comma" name="tags">
+            
+            <button id="update-recipe">Update Recipe</button>
+            <button id="delete-recipe">Delete Recipe</button>
         </div>
     </form>
     <% include footer.ejs %>

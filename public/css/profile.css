@@ -1,0 +1,34 @@
+.picture {
+	max-width: 30%;
+	margin: 0 auto;
+}
+
+#user-picture {
+	border-radius: 50%;
+	max-width: 256px;
+	max-height: 256px;
+}
+
+#recipes {
+	margin-top: 128px;
+}
+
+.col-left {
+	width: 30%;
+	display: inline-block;
+}
+
+p {
+	margin: 0;
+	text-align: justify;
+}
+
+.col-left * {
+	width: 100%;
+}
+
+.col-right {
+	width: 65%;
+	display: inline-block;
+	vertical-align: top;
+}

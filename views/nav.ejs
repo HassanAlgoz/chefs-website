@@ -5,14 +5,14 @@
 		
 		<% if (user === null) {%>
 
-			<li><a href="/signup">Sign Up</a></li>
-			<li><a href="/login">log In</a></li>
+			<li class="right"><a href="/signup">Signup</a></li>
+			<li class="right"><a href="/login">Login</a></li>
 
 		<% } else { %>
 
 			<li><a href="/profile">Profile</a></li>
 			<li><a href="/recipe-add">New Recipe</a></li>
-
+			<li class="right"><a href="/logout">Logout</a></li>
 		<% } %>
 		
 	</ul>
