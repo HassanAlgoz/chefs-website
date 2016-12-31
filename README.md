@@ -75,14 +75,14 @@ We need to make HTTP 'requests' to the backend API. All HTTP requests are follow
 - [x] /profile
 - [ ] /profile/edit
 - [x] /search
-- [ ] /recipe/:id (Recipe Page)
+- [x] /recipe/:id
 - [x] /recipe-add
 - [ ] /recipe-edit/:id
 - [x] /login
 - [x] /signup
 - [ ] /chefs/:id
 - [ ] /users/:id
-- [ ] footer
+- [x] footer
 
 Please make sure your pages is consistent with the colors we've chosen:
 - red: #ea5b31
@@ -90,7 +90,7 @@ Please make sure your pages is consistent with the colors we've chosen:
 - dark-gray: #333
 
 ## SQL
-- [ ] A statement to search recipes & retrieve all their information. (For the search page)
+- [ ] A statement to search recipes based on (name, tag, ingredients) & retrieve all their information. (For the search page)
 
 
 ## SQL "Reports"
