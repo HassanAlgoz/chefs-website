@@ -1,26 +1,31 @@
-<form method="POST" action="/api/recipes">
-    <head>
-    	<meta charset="utf-8">
-	<title>Add Recipe Page</title>
-	<link rel="stylesheet" href="/css/main.css">
-	<link rel="stylesheet" href="/css/recipe-add.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Add Recipe Page</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/recipe-add.css">
 </head>
+<body>
+    <form method="POST" action="/api/recipes">
+        <div class="container">
+            <label><b>Recipe Image URL:</b></label>
+            <input type="URL" placeholder="Enter URL" name="image-URL" required>
 
-  <div class="container">
-    <label><b>Recipe Image URL:</b></label>
-    <input type="URL" placeholder="Enter URL" name="image-URL" required>
-      
-    <label><b>Recipe Name:</b></label>
-    <input type="text" placeholder="Enter Name" name="name" required>
-      
-    <label><b>Ingredients:</b></label>
-    <input type="text" placeholder="Seperate each ingredient by a comma" name="Ingredients" required>
-      
-    <label><b>Tags:</b></label>
-    <input type="text" placeholder="Seperate each tags by a comma" name="Tags" >
-      
-    <button type="submit">Add Recipe</button>
+            <label><b>Recipe Name:</b></label>
+            <input type="text" placeholder="Enter Name" name="name" required>
 
-  </div>
+            <label><b>Ingredients:</b></label>
+            <input type="text" placeholder="Seperate each ingredient by a comma" name="Ingredients" required>
 
-</form>
+            <label><b>Tags:</b></label>
+            <input type="text" placeholder="Seperate each tags by a comma" name="Tags" >
+
+            <button type="submit">Add Recipe</button>
+
+        </div>
+    </form>
+    <% include footer.ejs %>
+</body>
+</html>
+
