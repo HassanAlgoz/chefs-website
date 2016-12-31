@@ -82,7 +82,7 @@ We need to make HTTP 'requests' to the backend API. All HTTP requests are follow
 - [x] /signup
 - [ ] /chefs/:id
 - [ ] /users/:id
-- [ ] footer
+- [x] footer
 
 Please make sure your pages is consistent with the colors we've chosen:
 - red: #ea5b31
