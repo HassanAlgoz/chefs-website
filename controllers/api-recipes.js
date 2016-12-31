@@ -1,5 +1,6 @@
 var async = require('async');
 
+var isLoggedIn = require('../utils').isLoggedIn;
 var addToQuery = require('../utils.js').addToQuery;
 var addToQueryLike = require('../utils.js').addToQueryLike;
 
@@ -10,6 +11,7 @@ module.exports = function(app, connection) {
 		
 		var query = 'SELECT *, recipes.id AS recipe_id FROM recipes LEFT JOIN chefs ON chefs.id = recipes.chef_id';
 
+		query = addToQuery(query, req.query, 'chef_id');
 		query = addToQueryLike(query, req.query, 'name');
 
 		if (req.query.orderby)
@@ -92,13 +94,14 @@ module.exports = function(app, connection) {
 
 
 
-	app.post('/api/recipes', function(req, res) {
+	app.post('/api/recipes', isLoggedIn, function(req, res) {
 
 		var query = 'INSERT INTO recipes SET ?';
 		var set = {
 			name: req.body.name,
 			directions: req.body.directions,
-			chef_id: req.body.chef_id,
+			image: req.body.image,
+			chef_id: req.user.id,
 			posted_at: new Date()
 		}
 		var ingredients = req.body.ingredients.trim().split(',');
@@ -144,7 +147,7 @@ module.exports = function(app, connection) {
 						query += 'INSERT INTO `tags` SET ?';
 						set = {
 							recipe_id: result.insertId,
-							tag_id: parseInt(tags[i])
+							tag_id: tags[i]
 						}
 
 						console.log(query);
@@ -171,13 +174,13 @@ module.exports = function(app, connection) {
 	});
 
 
-	app.post('/api/recipes/:id/comments', function(req, res) {
+	app.post('/api/recipes/:id/comments', isLoggedIn, function(req, res) {
 
 		var query = 'INSERT INTO comments SET ?';
 		var set = {
 			body: req.body.body,
 			recipe_id: req.params.id,
-			user_id: req.body.user_id,
+			user_id: req.user.id,
 			posted_at: new Date()
 		}
 		
@@ -196,13 +199,14 @@ module.exports = function(app, connection) {
 	});
 
 
-	app.put('/api/recipes/:id', function(req, res) {
+	app.put('/api/recipes/:id', isLoggedIn, function(req, res) {
 
 		var query = 'UPDATE recipes SET ? WHERE id = ' + req.params.id;
 		var set = {
 			name: req.body.name,
 			directions: req.body.directions,
-			chef_id: req.body.chef_id
+			image: req.body.image,
+			chef_id: req.user.id
 		}
 		
 		console.log(query);

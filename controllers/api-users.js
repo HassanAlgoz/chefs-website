@@ -32,13 +32,14 @@ module.exports = function(app, connection) {
 
 	app.get('/api/users/:id', function(req, res) {
 		
-		var query = 'SELECT * FROM `users` WHERE `id` = ' + req.params.id;
+		var query = 'SELECT * FROM users LEFT JOIN chefs on users.id = chefs.id WHERE users.id = ' + req.params.id;
 
 		connection.query(query, function(err, rows, fields) {
 			if (err) {
 				console.error('err', err);
 				return res.sendStatus(404);
 			}
+
 	    res.json(rows);
   	});
 	});

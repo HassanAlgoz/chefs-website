@@ -4,13 +4,20 @@ form {
 }
 
 /* Full-width inputs */
-input[type=text], input[type=password],input[type=URl] {
+input[type=text],
+input[type=password],
+input[type=url],
+textarea {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+}
+
+textarea {
+    min-height: 256px;
 }
 
 /* Set a style for all buttons */
@@ -21,8 +28,23 @@ button {
     margin: 8px 0;
     border: none;
     cursor: pointer;
+}
+
+button#add-recipe {
     width: 100%;
 }
+
+button#update-recipe {
+    width: 80%;
+}
+
+button#delete-recipe {
+    background-color: #ea5b31;
+    padding: 14px 5px;
+    width: 19%;
+}
+
+
 
 /* Extra style for the cancel button (red) */
 .cancelbtn {

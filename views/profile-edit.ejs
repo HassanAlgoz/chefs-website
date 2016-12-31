@@ -1,0 +1,59 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+	<title>Edit Profile</title>
+	<!-- CSS -->
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="/css/signup.css"> 
+	<link rel="stylesheet" href="/css/profile-edit.css">
+	<!-- Javascript -->
+	<script src="/js/lib/jquery.min.js"></script>
+	<script src="/js/profile-edit.js"></script>
+</head>
+<body>
+
+	<% include nav.ejs %>
+
+	<input type="hidden" id="user_id" value="<%=user.id%>">
+
+	<form>
+		<div class="imgcontainer">
+			<img src="/img/chef-clipart-chef-graphics-clipart-1.jpg" alt="Avatar" class="avatar">
+		</div>
+
+		<div class="container">
+			<label><b>Username</b></label>
+			<input type="text" id="username" name="username" disabled required>
+			
+			<label><b>Email Address</b></label>
+			<input type="email" placeholder="Enter Email Adress" id="email" name="email" disabled required>
+			
+			<label><b>Picture</b></label>
+			<input type="url" placeholder="Enter Picture URL" id="picture" name="picture">
+
+			<label><b>Birth Date</b></label>
+			<input type="date" id="birth_date" name="birth_date">
+			
+			<label><b>Sex</b></label>
+			<input type="radio" name="gender" value="male" checked> Male
+			<input type="radio" name="gender" value="female"> Female
+
+			<br>
+			<br>
+
+			<label><b>Biography</b></label>
+			<textarea name="bio" id="bio" placeholder="Biography"></textarea>
+
+			<label><b>Social Media Links</b></label>
+			<textarea name="social_links" id="social_links" placeholder="Put each link in a new line"></textarea>
+
+			<button type="submit">Update Profile</button>
+
+		</div>
+	</form>
+
+	<% include footer.ejs %>
+</body>
+
+</html>
