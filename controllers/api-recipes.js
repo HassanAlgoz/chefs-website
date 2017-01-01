@@ -56,6 +56,17 @@ module.exports = function(app, connection) {
 		query += ';';
 		query += 'SELECT * FROM tags WHERE recipe_id = ' + recipe_id;
 
+		// count likes and dislikes
+		query += ';'
+		query += 'SELECT COUNT(opinion) AS num FROM opinions WHERE recipe_id = ' + recipe_id + ' AND opinion = 1';
+		query += ';'
+		query += 'SELECT COUNT(opinion) AS num FROM opinions WHERE recipe_id = ' + recipe_id + ' AND opinion = 0';
+
+
+		// increment hits
+		query += ';';
+		query += 'UPDATE recipes SET hits = hits + 1 WHERE id = ' + recipe_id;
+
 		connection.query(query, function(err, result, fields) {
 			if (err) {
 				console.error('err', err);
@@ -73,7 +84,9 @@ module.exports = function(app, connection) {
 				posted_at: result[0][0].posted_at,
 				comments: result[1],
 				ingredients: result[2],
-				tags: result[3]
+				tags: result[3],
+				likes: result[4][0].num,
+				dislikes: result[5][0].num
 			};
 
 			result.ingredients = result.ingredients.map((x) => {
@@ -84,13 +97,13 @@ module.exports = function(app, connection) {
 				return x.name;
 			})
 
+
 			res.json(result);
 
 
 		});
 
 	});
-
 
 
 
@@ -182,6 +195,54 @@ module.exports = function(app, connection) {
 			recipe_id: req.params.id,
 			user_id: req.user.id,
 			posted_at: new Date()
+		}
+		
+		console.log(query);
+		console.log(set);
+		connection.query(query, set, function(err, result) {
+			if (err) {
+				console.error('err', err);
+				return res.sendStatus(404);
+			}
+
+			res.sendStatus(201);
+
+		});
+
+	});
+
+
+
+	app.post('/api/recipes/:id/likes', isLoggedIn, function(req, res) {
+
+		var query = 'INSERT INTO opinions SET ? ON DUPLICATE KEY UPDATE opinion = 1';
+		var set = {
+			opinion: 1,
+			recipe_id: req.params.id,
+			user_id: req.user.id
+		}
+		
+		console.log(query);
+		console.log(set);
+		connection.query(query, set, function(err, result) {
+			if (err) {
+				console.error('err', err);
+				return res.sendStatus(404);
+			}
+
+			res.sendStatus(201);
+
+		});
+
+	});
+
+	app.post('/api/recipes/:id/dislikes', isLoggedIn, function(req, res) {
+
+		var query = 'INSERT INTO opinions SET ? ON DUPLICATE KEY UPDATE opinion = 0';
+		var set = {
+			opinion: 0,
+			recipe_id: req.params.id,
+			user_id: req.user.id
 		}
 		
 		console.log(query);

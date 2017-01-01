@@ -23,6 +23,20 @@
 			<div class="image-box">
 			<img src="http://lorempixel.com/560/320/food" alt="Recipe Picture">
 			</div>
+	
+
+			<div>
+				<span id="num-likes"></span>
+				<button id="like">Like</button>
+			</div>
+			<div>
+				<span id="num-dislikes"></span>
+				<button id="dislike">Dislike</button>
+			</div>
+			
+			<div>
+				<span id="hits"></span>
+			</div>
 
 			<h1><span id="recipe-name"></span>
 				<small class="by">By <span id="chef-name"></span></small>
@@ -51,7 +65,7 @@
 				<h3 class="header">Add your comment...</h3>
 				<form>
 					<textarea id="comment-body" placeholder="Comment.." maxlength="700" name="body" required></textarea>
-					<button type="submit">Add Comment</button>
+					<button type="submit" id="btn-comment">Add Comment</button>
 				</form>
 				
 			</div>

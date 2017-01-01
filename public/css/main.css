@@ -1,7 +1,7 @@
 /* The main styles file */
 body {
 	font: 16px Helvetica, Sans-Serif;
-  margin: 0;
+	margin: 0;
 }
 
 
@@ -16,41 +16,41 @@ h6 {
 }
 
 a {
-  text-decoration: none;
-  color: #ea5b31;
+	text-decoration: none;
+	color: #ea5b31;
 }
 
 a:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
 nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #ea5b31;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #ea5b31;
 
 }
 
 nav ul li {
-  font: 16px/20px Helvetica, Sans-Serif;
-  float: left;
+	font: 16px/20px Helvetica, Sans-Serif;
+	float: left;
 
 }
 
 nav ul li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
 
 }
 
 nav ul li a:hover {
-  background-color: rgba(0, 0, 0, 0.7);
-  text-decoration: none;
+	background-color: rgba(0, 0, 0, 0.7);
+	text-decoration: none;
 }
 
 nav ul li.right {
@@ -62,29 +62,37 @@ nav ul li.right::after {
 }
 
 input[type="submit"] {
-  cursor: pointer;
+	cursor: pointer;
 }
 
-button[type="submit"] {
-  cursor: pointer;
-  background-color: #4CAF50;
-  border: none;
-  color: #fff;
+button {
+	cursor: pointer;
+	background-color: #4CAF50;
+	border: none;
+	color: #fff;
+}
+
+button#dislike {
+	background-color: #ea5b31;
 }
 
 .container {
-  max-width: 640px;
-  margin: 0 auto;
+	max-width: 640px;
+	margin: 0 auto;
 }
 
 .clear {
-  clear: both;
+	clear: both;
+}
+
+.text-right {
+	text-align: right;
 }
 
 .inline-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }
 
 .inline-list li {
@@ -92,18 +100,13 @@ button[type="submit"] {
 }
 
 
-.footer-distributed{
+.footer-distributed {
 	background-color: #292c2f;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
-	width: 100%;
 	text-align: left;
-	font: normal 16px sans-serif;
-    position:absolute;
-    bottom:0px;
-    width: 100%;
-    margin: 0;
 	padding: 45px 50px;
+	width: 100%;
 }
 
 .footer-distributed .footer-left p{
@@ -140,12 +143,10 @@ button[type="submit"] {
 	height: 35px;
 	background-color:  #33383b;
 	border-radius: 2px;
-
 	font-size: 20px;
 	color: #ffffff;
 	text-align: center;
 	line-height: 35px;
-
 	margin-left: 3px;
 }
 

@@ -6,12 +6,25 @@ $(function() {
   // @success: a function called when the request is successful
   // @error: a function called when request has an error
 
+  var user_id = $('#user_id').val();
+  console.log(user_id);
+  if (user_id === '0') {
+    $('button#like').css('cursor', 'not-allowed');
+    $('button#dislike').css('cursor', 'not-allowed');
+    $('button#btn-comment').css('cursor', 'not-allowed');  
+  }
+  
+
   $.ajax({
     method: 'GET',
     url: '/api/recipes' + '/' + $('#recipe_id').val(),
     dataType: 'json',
     success: function(data) {
       // Success case
+      console.log(data);
+      $('#num-likes').text(data.likes);
+      $('#num-dislikes').text(data.dislikes);
+      $('#hits').text(data.hits + ' hits');
       $('#recipe-name').text(data.name);
       $('#chef-name').text(data.first_name + ' ' + data.last_name);
       $('#directions').text(data.directions);
@@ -61,21 +74,71 @@ $(function() {
   $('form').on('submit', function(event) {
     event.preventDefault();
 
-    $.ajax({
-      method: 'POST',
-      url: '/api/recipes' + '/' + $('#recipe_id').val() + '/comments',
-      data: {
-        body: $('#comment-body').val()
-      },
-      success: function(data) {
-        // Success case
-        // location.reload();
-      },
-      error: function(error) {
-        // Error case
-        console.log(error);
-      }
-    })
+    if (user_id !== '0') {
+      $.ajax({
+        method: 'POST',
+        url: '/api/recipes' + '/' + $('#recipe_id').val() + '/comments',
+        data: {
+          body: $('#comment-body').val()
+        },
+        success: function(data) {
+          // Success case
+          location.reload();
+        },
+        error: function(error) {
+          // Error case
+          console.log(error);
+        }
+      })
+    }
+
+    
+
+  })
+
+ 
+
+  $('button#like').on('click', function(e) {
+    e.preventDefault();
+
+    if (user_id !== '0') {
+
+      $.ajax({
+        method: 'POST',
+        url: '/api/recipes' + '/' + $('#recipe_id').val() + '/likes',
+        success: function(data) {
+          // Success case
+          console.log('liked')
+          location.reload();
+        },
+        error: function(error) {
+          // Error case
+          console.log(error);
+        }
+      })
+    }
+
+  })
+
+  $('button#dislike').on('click', function(e) {
+    e.preventDefault();
+
+    if (user_id !== '0') {
+
+      $.ajax({
+        method: 'POST',
+        url: '/api/recipes' + '/' + $('#recipe_id').val() + '/dislikes',
+        success: function(data) {
+          // Success case
+          console.log('disliked')
+          location.reload();
+        },
+        error: function(error) {
+          // Error case
+          console.log(error);
+        }
+      })
+    }
 
   })
 

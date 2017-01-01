@@ -33,13 +33,28 @@ module.exports = function(app, connection) {
 	app.get('/api/chefs/:id', function(req, res) {
 		
 		var query = 'SELECT * FROM users, chefs WHERE id = ' + req.params.id;
-		query += ';';
 
 		connection.query(query, function(err, rows, fields) {
 			if (err) {
 				console.error('err', err);
 				return res.sendStatus(404);
 			}
+	    res.json(rows);
+  	});
+	});
+
+	app.get('/api/chefs/:id/social_links', function(req, res) {
+		
+		var query = 'SELECT link FROM social_links WHERE chef_id = ' + req.params.id;
+
+		console.log(query);
+
+		connection.query(query, function(err, rows, fields) {
+			if (err) {
+				console.error('err', err);
+				return res.sendStatus(404);
+			}
+			rows = rows.map((x) => x.link);
 	    res.json(rows);
   	});
 	});
@@ -76,17 +91,24 @@ module.exports = function(app, connection) {
 
 	app.put('/api/chefs/:id', function(req, res) {
 
-		var query = 'UPDATE chefs SET ?';
-		var set = {
-			first_name: req.body.first_name,
-			last_name: req.body.last_name,
-			bio: req.body.bio
+		var query = "UPDATE chefs SET bio = '"+ req.body.bio +"' WHERE id = " + req.params.id;
+
+		var i;
+		var social_links = req.body.social_links.split('\n');
+		var str = "";
+		for(i=0; i<social_links.length; i++) {
+			str += `("${social_links[i]}",${req.user.id}),`;
 		}
-		query += ' WHERE id = ' + req.params.id;
+		str = str.substring(0, str.length - 1);
+
+		query += ';';
+		query += ' DELETE FROM social_links WHERE chef_id = ' + req.user.id;
+
+		query += ';';
+		query += ' INSERT INTO social_links (link, chef_id) VALUES ' + str + ';';
 		
 		console.log(query);
-		console.log(set);
-		connection.query(query, set, function(err, result) {
+		connection.query(query, function(err, result) {
 			if (err) {
 				console.error('err', err);
 				return res.sendStatus(404);

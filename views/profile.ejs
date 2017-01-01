@@ -14,8 +14,6 @@
 
 	<% include nav.ejs %>
 
-	<input type="hidden" id="user_id" value="<%= user.id %>">
-
 	<div class="container">
 		<div class="picture">
 			<img id="user-picture" src="" alt="Chef's Picture" >
@@ -23,9 +21,10 @@
 
 		<div class="info">
 			<h1 id="username"><%= user.username %></h1>
+			<a href="/profile/edit" id="btn-edit">Edit Profile</a>
 			<p id="bio"><%= user.bio %></p>
 			<h3 id="email"></h3>
-			<ul class="inline-list" id="social-media-links">
+			<ul class="inline-list" id="social_links">
 				
 			</ul>
 		</div>

@@ -32,3 +32,8 @@ p {
 	display: inline-block;
 	vertical-align: top;
 }
+
+.social-icon {
+	width: 32px;
+	height: 32px;
+}

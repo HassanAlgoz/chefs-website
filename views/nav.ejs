@@ -1,3 +1,9 @@
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">        
+<% if (user !== null) { %>
+	<input type="hidden" id="user_id" value="<%= user.id %>">
+<% }  else { %>
+	<input type="hidden" id="user_id" value="0">
+<% } %>
 <nav>
 	<ul>
 		<li><a href="/">Home</a></li>

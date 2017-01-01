@@ -18,6 +18,10 @@ p {
 
 }
 
+#hits {
+    background-color: #f1f1f1;
+}
+
 #comments-section {
     margin: 200px auto 0 auto;
     max-width: 560px;

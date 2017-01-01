@@ -19,15 +19,22 @@ $(function() {
       $('#picture').val(user.picture);
       $('#birth_date').val(user.birth_date);
       $('#bio').val(user.bio);
-      $('#social_links').val(user.social_links);
 
-      var i;
-      var str = "";
-      for(i=0; i<user.ingredients.length; i++) {
-      	str += user.ingredients[i] + ', ';
+
+      if (parseInt(user.is_chef) === 1) {
+         $.ajax({
+          method: 'GET',
+          url: '/api/chefs' + '/' + $('#user_id').val() + '/social_links',
+          dataType: 'json',
+          success: function(social_links) {
+            console.log(social_links);
+            $('#social_links').text(social_links.join(''));
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });
       }
-      str = str.substring(0, str.length - 1);
-      $('#ingredients').html(str);
 
       
     },
@@ -35,6 +42,24 @@ $(function() {
       // Error case
       console.log(error);
     }
+  })
+
+  $('form').on('submit', function(event) {
+    event.preventDefault();
+
+    $.ajax({
+      method: 'PUT',
+      url: '/api/chefs' + '/' + $('#user_id').val(),
+      data: $(this).serialize(),
+      success: function(data) {
+  
+      },
+      error: function(error) {
+        // Error case
+        console.log(error);
+      }
+    })
+
   })
 
 

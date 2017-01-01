@@ -23,6 +23,39 @@ $(function() {
       $('#email').text(user.email);
       $('#bio').text(user.bio);
       $('#user-picture').attr('src', user.picture);
+
+      if (parseInt(user.is_chef) === 1) {
+         $.ajax({
+          method: 'GET',
+          url: '/api/chefs' + '/' + $('#user_id').val() + '/social_links',
+          dataType: 'json',
+          success: function(social_links) {
+            console.log(social_links);
+            var str = "";
+            var image;
+            for(var i=0; i<social_links.length; i++) {
+              image = "";
+              
+              if (social_links[i].indexOf('facebook') !== -1) {
+                image = '/img/facebook.png';
+              } else if (social_links[i].indexOf('twitter') !== -1) {
+                image = '/img/twitter.jpeg';
+              } else if (social_links[i].indexOf('youtube') !== -1) {
+                image = '/img/youtube.png';
+              } else if (social_links[i].indexOf('instagram') !== -1) {
+                image = '/img/instagram.png';
+              }
+
+              console.log(image);
+              str += `<li><a href="${social_links[i]}"><img class="social-icon" src="${image}" alt="social_links" /></a></li>`
+            }
+            $('#social_links').html(str);
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });
+      }
     },
     error: function(error) {
       // Error case
