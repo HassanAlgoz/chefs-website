@@ -23,6 +23,9 @@ $(function() {
          
         var j;
         var recipe = data[i];
+        console.log(recipe);
+
+        str += '<hr>';
 
         if (recipe.chef_id !== null) {
           str += `
@@ -33,35 +36,26 @@ $(function() {
           `;
         } else {
           str += `
-            <small>
-              Anonymous
-              - ${recipe.posted_at}
-            </small>
+            <small>Anonymous - ${recipe.posted_at}</small>
           `;
         }
         
         str += `
-          <a href="/recipe/${recipe.recipe_id}" class="clickable">
-            <ul class="inline-list">
-
-            </ul>
-            <ul id="tags" class="inline-list">
-
-            </ul>
-            <p>${recipe.directions.substring(0, 256).trim()}...</p>
-          </a>
+          <div class="col-left">
+            <a href="/recipe/${recipe.recipe_id}" class="clickable">
+              <img src="${recipe.image}" alt="Recipe's Image" />
+            </a>
+          </div>
+          <div class="col-right">
+            <a href="/recipe/${recipe.recipe_id}" class="clickable">
+              <p>${recipe.directions.substring(0, 256).trim()}...</p>
+            </a>
+          </div>
         `;
       }
 
       $('#results').html(str);
-
-      // for(j=0; j<recipe.tags.length; j++) {
-      //   $('#tags').append(`<li>${recipe.tags[j]}</li>`);
-      // }
-
-      // for(j=0; j<recipe.ingredients.length; j++) {
-      //   $('#ingredients').append(`<li>${recipe.ingredients[j]}</li>`);
-      // }
+      $('#results').append('<div class="clear"></div>')
       
       
 

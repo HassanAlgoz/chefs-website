@@ -97,7 +97,6 @@ $(function() {
               <p>${recipe.directions.substring(0, 400).trim()}...</p>
             </a>
           </div>
-
         `;
       }
 

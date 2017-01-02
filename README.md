@@ -113,13 +113,13 @@ Please make sure your pages is consistent with the colors we've chosen:
 
 ### Other requirements
 - [ ] Physical (or internal) schema, i.e., file structure for each relation (2)
-- [ ] The user manual (You can add snapshots of your screens along with explanations about how to use for users) (3)
+- [x] The user manual (You can add snapshots of your screens along with explanations about how to use for users) (3)
 - [ ] The conclusions (your own experiences) (1,2,3,4)
 - [ ] Distribution of Project tasks (A table showing who did what) (1,2,3,4)
 
 ## SQL "Reports"
 - [ ] Top three recipes of the month (2)
-- [ ] Annual number of registered users (3)
-- [ ] Top chefs of the month (4)
-- [ ] Number of site hits per month (4)
-- [ ] Most active users of the week (4)
+- [x] Annual number of registered users (3)
+- [x] Top chefs of the month (4)
+- [x] Number of site hits per month (4)
+- [x] Most active users of the week (4)

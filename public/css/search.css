@@ -51,3 +51,29 @@ a.clickable {
 a.clickable:hover {
     color: #ea5b31;
 }
+
+
+#results {
+    margin-top: 128px;
+}
+
+.col-left {
+    width: 30%;
+    display: inline-block;
+    float: left;
+}
+
+p {
+    margin: 0;
+    text-align: justify;
+}
+
+.col-left * {
+    width: 100%;
+}
+
+.col-right {
+    width: 65%;
+    display: inline-block;
+    vertical-align: top;
+}
