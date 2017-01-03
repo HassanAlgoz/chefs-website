@@ -15,6 +15,7 @@ $(function() {
   }
   
 
+
   $.ajax({
     method: 'GET',
     url: '/api/recipes' + '/' + $('#recipe_id').val(),
@@ -22,6 +23,7 @@ $(function() {
     success: function(data) {
       // Success case
       console.log(data);
+      $('#recipe-image').attr('src', data.image);
       $('#num-likes').text(data.likes);
       $('#num-dislikes').text(data.dislikes);
       $('#hits').text(data.hits + ' hits');
@@ -49,6 +51,7 @@ $(function() {
       str = "";
       for(i=0; i<data.comments.length; i++) {
       	var comment = data.comments[i];
+        console.log(comment.user_id, comment.username);
       	str += `
 					<li>
 						<a href="/users/${comment.user_id}"><img src="${comment.picture}" alt="user pic">

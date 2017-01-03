@@ -6,9 +6,10 @@ $(function() {
   // @success: a function called when the request is successful
   // @error: a function called when request has an error
 
+
   $.ajax({
     method: 'GET',
-    url: '/api/users' +'/'+ $('#user_id').text(),
+    url: '/api/users' +'/'+ $('#user_id').val(),
     dataType: 'json',
     success: function(data) {
       // Success case
@@ -66,7 +67,7 @@ $(function() {
 
   $.ajax({
     method: 'GET',
-    url: '/api/recipes?chef_id=' + $('#user_id').text(),
+    url: '/api/recipes?chef_id=' + $('#user_id').val(),
     dataType: 'json',
     success: function(data) {
       // Success case

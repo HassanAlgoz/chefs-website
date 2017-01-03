@@ -82,6 +82,7 @@ module.exports = function(app, connection) {
 				directions: result[0][0].directions,
 				hits: result[0][0].hits,
 				posted_at: result[0][0].posted_at,
+				image: result[0][0].image,
 				comments: result[1],
 				ingredients: result[2],
 				tags: result[3],
@@ -132,6 +133,7 @@ module.exports = function(app, connection) {
 
 			async.waterfall([
 				function(callback) {
+					
 					for(var i=0; i<ingredients.length; i++) {
 						query = 'INSERT INTO `ingredients` SET ?';
 						set = {
@@ -140,15 +142,12 @@ module.exports = function(app, connection) {
 						}
 
 						console.log(query);
-						connection.query(query, set, function(err, result) {
+						console.log(set);
+						connection.query(query, set, function(err) {
 							if (err) {
 								console.error('err', err);
-								return res.sendStatus(404);
 							}
-
-							console.log('insertedId: ' + result.insertId);
-							
-
+							console.log('row inserted');
 						});
 					}
 
@@ -157,23 +156,23 @@ module.exports = function(app, connection) {
 
 				function(callback) {
 					for(var i=0; i<tags.length; i++) {
-						query += 'INSERT INTO `tags` SET ?';
+						query = 'INSERT INTO `tags` SET ?';
 						set = {
 							recipe_id: result.insertId,
-							tag_id: tags[i]
+							name: tags[i]
 						}
 
 						console.log(query);
-						connection.query(query, set, function(err, result) {
+						console.log(set);
+						connection.query(query, set, function(err) {
 							if (err) {
 								console.error('err', err);
-								return res.sendStatus(404);
 							}
-							console.log('insertedId: ' + result.insertId);
+							console.log('row inserted');
 						});
 					}
 
-					callback(null)
+					callback(null);
 				},
 
 				function() {
@@ -269,6 +268,8 @@ module.exports = function(app, connection) {
 			image: req.body.image,
 			chef_id: req.user.id
 		}
+		var ingredients = req.body.ingredients.trim().split(',');
+		var tags = req.body.tags.trim().split(',');
 		
 		console.log(query);
 		console.log(set);
@@ -278,33 +279,67 @@ module.exports = function(app, connection) {
 				return res.sendStatus(404);
 			}
 
-			// var query = 'DELETE FROM ingredients WHERE recipe_id = ' + req.params.id;
-			// console.log(query);
+			var query = 'DELETE FROM ingredients WHERE recipe_id = ' + req.params.id;
+			query += '; DELETE FROM tags WHERE recipe_id = ' + req.params.id;
+			console.log(query);
 
-			// connection.query(query, function(err, result) {
-			// 	if (err) {
-			// 		console.error('err', err);
-			// 		return res.sendStatus(404);
-			// 	}
+			connection.query(query, function(err) {
+				if (err) {
+					console.error('err', err);
+					return res.sendStatus(404);
+				}
 
-			// 	query = 'INSERT INTO ingredients SET ?';
-			// 	set = {
-			// 		recipe_id: result.insertId,
-			// 		name: req.body.ingredientName
-			// 	}
+				async.waterfall([
+					function(callback) {
+						
+						for(var i=0; i<ingredients.length; i++) {
+							query = 'INSERT INTO `ingredients` SET ?';
+							set = {
+								recipe_id: req.params.id,
+								name: ingredients[i]
+							}
 
-			// 	connection.query(query, set, function(err, result) {
-			// 		if (err) {
-			// 			console.error('err', err);
-			// 			return res.sendStatus(404);
-			// 		}
+							console.log(query);
+							console.log(set);
+							connection.query(query, set, function(err) {
+								if (err) {
+									console.error('err', err);
+								}
+								console.log('row inserted');
+							});
+						}
 
-			console.log('insertedId: ' + result.insertId);
-			res.sendStatus(204);
+						callback(null);
+					},
 
-			// 	});
+					function(callback) {
+						for(var i=0; i<tags.length; i++) {
+							query = 'INSERT INTO `tags` SET ?';
+							set = {
+								recipe_id: req.params.id,
+								name: tags[i]
+							}
 
-			// });
+							console.log(query);
+							console.log(set);
+							connection.query(query, set, function(err) {
+								if (err) {
+									console.error('err', err);
+								}
+								console.log('row inserted');
+							});
+						}
+
+						callback(null);
+					},
+
+					function() {
+						res.sendStatus(201);
+					}
+
+				])
+
+			});
 
 		});
 
@@ -346,8 +381,6 @@ module.exports = function(app, connection) {
 		});
 
 	});
-
-
 
 
 };
