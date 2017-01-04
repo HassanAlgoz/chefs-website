@@ -1,3 +1,4 @@
+var async = require('async');
 var addToQuery = require('../utils.js').addToQuery;
 
 module.exports = function(app, connection) {
@@ -91,34 +92,45 @@ module.exports = function(app, connection) {
 
 	app.put('/api/chefs/:id', function(req, res) {
 
-		var query = "UPDATE chefs SET bio = '"+ req.body.bio +"' WHERE id = " + req.params.id;
+		async.waterfall([
+			function(callback) {
+				var query = "UPDATE chefs SET bio = '"+ req.body.bio +"' WHERE id = " + req.params.id;
 
-		var i;
-		var social_links = req.body.social_links.split('\n');
-		var str = "";
-		for(i=0; i<social_links.length; i++) {
-			str += `("${social_links[i]}",${req.user.id}),`;
-		}
-		str = str.substring(0, str.length - 1);
+				var i;
+				var social_links = req.body.social_links.split('\n');
+				var str = "";
+				for(i=0; i<social_links.length; i++) {
+					str += `("${social_links[i]}",${req.user.id}),`;
+				}
+				str = str.substring(0, str.length - 1);
 
-		query += ';';
-		query += ' DELETE FROM social_links WHERE chef_id = ' + req.user.id;
+				callback(null, query, str);
+			},
+			function(query, str) {
+				query += ';';
+				query += ' DELETE FROM social_links WHERE chef_id = ' + req.user.id;
 
-		query += ';';
-		query += ' INSERT INTO social_links (link, chef_id) VALUES ' + str + ';';
-		
-		console.log(query);
-		connection.query(query, function(err, result) {
-			if (err) {
-				console.error('err', err);
-				return res.sendStatus(404);
+				query += ';';
+				query += ' INSERT INTO social_links (link, chef_id) VALUES ' + str + ';';
+				
+				console.log(query);
+				connection.query(query, function(err, result) {
+					if (err) {
+						console.error('err', err);
+						return res.sendStatus(404);
+					}
+
+					console.log('insertedId: ' + result.insertId);
+					res.sendStatus(201);
+				});
 			}
 
-			console.log('insertedId: ' + result.insertId);
-			res.sendStatus(201);
-		});
+		]);
+		
 
 	});
+
+
 
 
 

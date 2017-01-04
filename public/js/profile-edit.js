@@ -28,7 +28,7 @@ $(function() {
           dataType: 'json',
           success: function(social_links) {
             console.log(social_links);
-            $('#social_links').text(social_links.join(''));
+            $('#social_links').text(social_links.join('\n'));
           },
           error: function(error) {
             console.log(error);

@@ -52,10 +52,12 @@ $(function() {
             </a>
           </div>
         `;
+        
+        str += '<div class="clear"></div>';
       }
 
       $('#results').html(str);
-      $('#results').append('<div class="clear"></div>')
+      
       
       
 
