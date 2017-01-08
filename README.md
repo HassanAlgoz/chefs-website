@@ -75,6 +75,13 @@ We need to make HTTP 'requests' to the backend API. All HTTP requests are follow
 - /api/login - POST
 - /api/logout - GET
 
+
+Please make sure your pages is consistent with the colors we've chosen:
+- red: #ea5b31
+- orange: #F9A825
+- dark-gray: #333
+
+
 ## Pages
 - [x] navbar
 - [x] /
@@ -89,37 +96,32 @@ We need to make HTTP 'requests' to the backend API. All HTTP requests are follow
 - [x] /users/:id
 - [x] footer
 
-Please make sure your pages is consistent with the colors we've chosen:
-- red: #ea5b31
-- orange: #F9A825
-- dark-gray: #333
-
 ## SQL
 - [x] A statement to search recipes based on name & retrieve all their information. (For the search page)
-- [ ] DML insert statements to insert the data in to tables. (1)
+- [x] DML insert statements to insert the data in to tables.
 - [x] DDL script /SQL statements used to create database objects
-- [ ] Select queries to satisfy the sample queries submitted in phase I
+- [x] Select queries to satisfy the sample queries submitted in phase I
   - [x] List all recipes
   - [x] List all registered users who are chefs
-  - [ ] List all registered users including/excluding chefs (1)
+  - [x] List all registered users including/excluding chefs
   - [x] List all comments made on a recipe
-  - [ ] List recipes ordered by the most liked recipe first (1)
-  - [ ] List recipes with certain types of ingredients (1)
-  - [ ] List recipes with certain tags attached to them (1)
+  - [x] List recipes ordered by the most liked recipe first
+  - [x] List recipes with certain types of ingredients
+  - [x] List recipes with certain tags attached to them
   - [x] Retrieve complete information about a certain chef
   - [x] Retrieve recipe ingredients, directions, and the date on which it was posted
   - [x] List recipes ordered by the date on which they were posted
 
 
 ### Other requirements
-- [ ] Physical (or internal) schema, i.e., file structure for each relation (2)
-- [x] The user manual (You can add snapshots of your screens along with explanations about how to use for users) (3)
-- [ ] The conclusions (your own experiences) (1,2,3,4)
-- [ ] Distribution of Project tasks (A table showing who did what) (1,2,3,4)
+- [x] Physical (or internal) schema, i.e., file structure for each relation
+- [x] The user manual (You can add snapshots of your screens along with explanations about how to use for users)
+- [x] The conclusions (your own experiences)
+- [x] Distribution of Project tasks (A table showing who did what)
 
 ## SQL "Reports"
-- [ ] Top three recipes of the month (2)
-- [x] Annual number of registered users (3)
-- [x] Top chefs of the month (4)
-- [x] Number of site hits per month (4)
-- [x] Most active users of the week (4)
+- [x] Top three recipes of the month
+- [x] Annual number of registered users
+- [x] Top chefs of the month
+- [x] Number of site hits per month
+- [x] Most active users of the week
